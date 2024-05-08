@@ -28,6 +28,7 @@ void bubbleSort(Node*);
 void deleteNodebyValue(Node**,int);
 Node* searchNodebyValue(Node**,int);
 void selection_sort(Node* head);
+void selection_sort_2(Node* head);
 
 int main() {
     int arri_exec[100] = {};
@@ -325,5 +326,23 @@ void selection_sort(Node* head)
             node_2->iPayload = aux1;
             }
         }
+    }
+}
+void selection_sort_2(Node* head)
+{
+    int aux1;
+    for ( Node* node_1 = head; node_1 != nullptr; node_1 = node_1->ptrNext)
+        {
+        Node* menor = node_1;
+        for ( Node* node_2 = node_1->ptrNext ; node_2 != nullptr; node_2 = node_2->ptrNext)
+        {
+            if ( node_1->iPayload < menor)
+            {
+                menor = node_2;
+            }
+        }
+    aux1 = node_1->iPayload;
+    node_1->iPayload = menor->iPayload;
+    menor->iPayload = aux1;
     }
 }
