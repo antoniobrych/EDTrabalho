@@ -5,7 +5,6 @@
 #ifndef __EDTRABALHO_MAIN_H_
 #define __EDTRABALHO_MAIN_H_
 
-
 // Struct
 // Node and your functions
 
