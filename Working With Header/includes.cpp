@@ -1,6 +1,3 @@
-//
-// Created by Henrique on 18/05/2024.
-//
 
 #include <iostream>
 #include "main.h"
@@ -103,3 +100,46 @@ void insertionSort(Node** head)
     (*head) = sorted;
 }
 
+Node* getNodeAtIndex(Node** head, int index)
+{
+    Node* temp = (*head);
+    int count = 0;
+    while (temp != nullptr && count < index)
+    {
+        temp = temp->ptrNext;
+        count++;
+    }
+    return temp;
+}
+
+void shellSort(Node** head)
+{
+    if ((*head) == nullptr || (*head)->ptrNext == nullptr)
+    {
+        return;
+    }
+
+    int size = 0;
+    Node* temp = (*head);
+    while (temp != nullptr)
+    {
+        size++;
+        temp = temp->ptrNext;
+    }
+
+    for (int gap = size / 2; gap > 0; gap /= 2)
+    {
+        for (int i = gap; i < size; i++)
+        {
+            Node* current = getNodeAtIndex(head, i);
+            int currentValue = current->iPayload;
+
+            int j;
+            for (j = i; j >= gap && getNodeAtIndex(head, j - gap)->iPayload > currentValue; j -= gap)
+            {
+                getNodeAtIndex(head, j)->iPayload = getNodeAtIndex(head, j - gap)->iPayload;
+            }
+            getNodeAtIndex(head, j)->iPayload = currentValue;
+        }
+    }
+}

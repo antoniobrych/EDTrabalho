@@ -1,7 +1,3 @@
-//
-// Created by Jhonny on 18/05/2024.
-//
-
 // Includes and usings:
 #include <iostream>
 #include "main.h"
@@ -35,4 +31,20 @@ void displayList(Node* node){
     }
 
     cout << endl;
+}
+
+void insertEnd(Node** head,int iPayload){
+    //funcao que insere elemento no final da lista
+    Node* newNode = createNode(iPayload);
+    if (*head == nullptr){
+        (*head) = newNode; // Inicio, meio e fim Raul Seixas
+        return;
+    }
+    Node * temp = (*head);
+
+    while (temp->ptrNext != nullptr){
+        temp = temp->ptrNext;
+    }
+    newNode->ptrPrev = temp;
+    temp->ptrNext = newNode;
 }
