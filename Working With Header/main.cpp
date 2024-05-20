@@ -3,9 +3,13 @@
 //
 #include <iostream>
 #include "main.h"
+using namespace std;
 
 int main()
 {
-    std::cout << "initializing" << std::endl;
+    cout << "initializing" << std::endl;
+    Node* myNode = createNode(1);
+    cout << myNode->iPayload << endl;
+
     return 0;
 }

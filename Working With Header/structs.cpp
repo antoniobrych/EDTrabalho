@@ -4,8 +4,7 @@
 
 // Includes and usings:
 #include <iostream>
-#include "Working With Header/main.h"
-using namespace std;
+#include "main.h"
 // file of structs
 
 Node* createNode(int iPayload){

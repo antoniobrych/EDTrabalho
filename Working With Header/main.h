@@ -7,10 +7,12 @@
 
 // Struct
 // Node and your functions
+using namespace std;
+
 
 typedef struct Node
 {
-    int iPaySload;
+    int iPayload;
     Node* ptrNext;
     Node* ptrPrev;
 }Node;
