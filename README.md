@@ -4,5 +4,5 @@ Este repositório contém implementações de algoritmos de ordenação em C++, 
 
 ## Como Executar
 
-Para executar, basta baixar a pasta 'Working with Header' e executar o arquivo main.cpp
+Para executar, basta baixar a pasta 'Working with Header' e executar o arquivo main.cpp.
 
