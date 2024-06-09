@@ -1,33 +1,39 @@
 #include "tree.h"
+#include <chrono>
+#include <iostream>
 using namespace std;
+using namespace std::chrono;
 
 int main()
 {
     Node* root = nullptr;
 
-    root = insertNode(root, 42);
-    root = insertNode(root, 13);
-    root = insertNode(root, 11);
-    root = insertNode(root, 10);
-    root = insertNode(root, 28);
-    root = insertNode(root, 51);
-    root = insertNode(root, 171);
+    // Cria uma árvore binária de grande profundidade
+    for (int i = 1; i <= 10000; ++i)
+    {
+        root = insertNode(root, i);
+    }
 
     cout << "BFS Traversal: ";
-    bfsTraversal_Queue(root);
+    bfsTraversal(root);
     cout << endl;
 
-    int searchValue = 28;
-    if (bfsSearch(root, searchValue))
-    {
-        cout << "Value " << searchValue << " found in the tree." << endl;
-    }
-    else
-    {
-        cout << "Value " << searchValue << " not found in the tree." << endl;
-    }
-
     cout << "Tree Height: " << treeHeight(root) << endl;
+
+    int searchValue = 9999;
+
+    auto startBFS = high_resolution_clock::now();
+    bool foundBFS = bfsSearch(root, searchValue);
+    auto stopBFS = high_resolution_clock::now();
+    auto durationBFS = duration_cast<microseconds>(stopBFS - startBFS);
+
+    auto startDFS = high_resolution_clock::now();
+    bool foundDFS = dfsSearch(root, searchValue);
+    auto stopDFS = high_resolution_clock::now();
+    auto durationDFS = duration_cast<microseconds>(stopDFS - startDFS);
+
+    cout << "BFS Search: " << (foundBFS ? "Found" : "Not Found") << " in " << durationBFS.count() << " microseconds." << endl;
+    cout << "DFS Search: " << (foundDFS ? "Found" : "Not Found") << " in " << durationDFS.count() << " microseconds." << endl;
 
     return 0;
 }

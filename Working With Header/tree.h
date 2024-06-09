@@ -21,7 +21,7 @@ struct ListNode
 };
 void bfsTraversal(Node*);
 
-bool bfsSearch(Node*, int);
+Node* bfsSearch(Node*, int);
 
 Node* createNode(int);
 Node* insertNode(Node*, int);

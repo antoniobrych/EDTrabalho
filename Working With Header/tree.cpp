@@ -135,9 +135,9 @@ void bfsTraversal(Node* startingNode)
  * Parte 2 BFS search
  */
 
-bool bfsSearch(Node* startingNode, int target)
+Node* bfsSearch(Node* startingNode, int target)
 {
-    if (startingNode == nullptr) return false;
+    if (startingNode == nullptr) return nullptr;
 
     ListNode* front = nullptr;
     ListNode* rear = nullptr;
@@ -152,7 +152,7 @@ bool bfsSearch(Node* startingNode, int target)
     {
         Node* currentNode = front->treeNode;
 
-        if (currentNode->iPayload == target) return true;
+        if (currentNode->iPayload == target) return currentNode;
 
         if (currentNode->ptrLeft != nullptr)
         {
@@ -177,5 +177,5 @@ bool bfsSearch(Node* startingNode, int target)
         free(temp);
     }
 
-    return false;
+    return nullptr;
 }
