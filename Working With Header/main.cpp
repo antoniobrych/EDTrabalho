@@ -14,8 +14,18 @@ int main()
     root = insertNode(root, 171);
 
     cout << "BFS Traversal: ";
-    bfsTraversal(root);
+    bfsTraversal_Queue(root);
     cout << endl;
+
+    int searchValue = 28;
+    if (bfsSearch(root, searchValue))
+    {
+        cout << "Value " << searchValue << " found in the tree." << endl;
+    }
+    else
+    {
+        cout << "Value " << searchValue << " not found in the tree." << endl;
+    }
 
     cout << "Tree Height: " << treeHeight(root) << endl;
 

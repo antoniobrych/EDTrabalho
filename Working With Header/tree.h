@@ -14,6 +14,15 @@ struct Node
     Node* ptrRight;
 };
 
+struct ListNode
+{
+    Node* treeNode;
+    ListNode* next;
+};
+void bfsTraversal(Node*);
+
+bool bfsSearch(Node*, int);
+
 Node* createNode(int);
 Node* insertNode(Node*, int);
 void bfsTraversal_Queue(Node*);

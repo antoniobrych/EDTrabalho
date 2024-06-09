@@ -85,3 +85,97 @@ int treeHeight(Node* startingNode)
         return max(iLeftHeight, iRightHeight) + 1;
     }
 }
+
+/*
+ *  BFS Transversal
+ */
+void bfsTraversal(Node* startingNode)
+{
+    if (startingNode == nullptr) return;
+
+    ListNode* front = nullptr;
+    ListNode* rear = nullptr;
+
+    ListNode* newNode = (ListNode*) malloc(sizeof(ListNode));
+    newNode->treeNode = startingNode;
+    newNode->next = nullptr;
+
+    front = rear = newNode;
+
+    while (front != nullptr)
+    {
+        Node* currentNode = front->treeNode;
+        cout << currentNode->iPayload << " ";
+
+        if (currentNode->ptrLeft != nullptr)
+        {
+            ListNode* newLeftNode = (ListNode*) malloc(sizeof(ListNode));
+            newLeftNode->treeNode = currentNode->ptrLeft;
+            newLeftNode->next = nullptr;
+            rear->next = newLeftNode;
+            rear = newLeftNode;
+        }
+
+        if (currentNode->ptrRight != nullptr)
+        {
+            ListNode* newRightNode = (ListNode*) malloc(sizeof(ListNode));
+            newRightNode->treeNode = currentNode->ptrRight;
+            newRightNode->next = nullptr;
+            rear->next = newRightNode;
+            rear = newRightNode;
+        }
+
+        ListNode* temp = front;
+        front = front->next;
+        free(temp);
+    }
+}
+
+/*
+ * Parte 2 BFS search
+ */
+
+bool bfsSearch(Node* startingNode, int target)
+{
+    if (startingNode == nullptr) return false;
+
+    ListNode* front = nullptr;
+    ListNode* rear = nullptr;
+
+    ListNode* newNode = (ListNode*) malloc(sizeof(ListNode));
+    newNode->treeNode = startingNode;
+    newNode->next = nullptr;
+
+    front = rear = newNode;
+
+    while (front != nullptr)
+    {
+        Node* currentNode = front->treeNode;
+
+        if (currentNode->iPayload == target) return true;
+
+        if (currentNode->ptrLeft != nullptr)
+        {
+            ListNode* newLeftNode = (ListNode*) malloc(sizeof(ListNode));
+            newLeftNode->treeNode = currentNode->ptrLeft;
+            newLeftNode->next = nullptr;
+            rear->next = newLeftNode;
+            rear = newLeftNode;
+        }
+
+        if (currentNode->ptrRight != nullptr)
+        {
+            ListNode* newRightNode = (ListNode*) malloc(sizeof(ListNode));
+            newRightNode->treeNode = currentNode->ptrRight;
+            newRightNode->next = nullptr;
+            rear->next = newRightNode;
+            rear = newRightNode;
+        }
+
+        ListNode* temp = front;
+        front = front->next;
+        free(temp);
+    }
+
+    return false;
+}
