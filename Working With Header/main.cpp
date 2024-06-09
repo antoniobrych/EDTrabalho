@@ -23,17 +23,17 @@ int main()
     int searchValue = 9999;
 
     auto startBFS = high_resolution_clock::now();
-    bool foundBFS = bfsSearch(root, searchValue);
+    Node* foundNodeBFS = bfsSearch(root, searchValue);
     auto stopBFS = high_resolution_clock::now();
     auto durationBFS = duration_cast<microseconds>(stopBFS - startBFS);
 
     auto startDFS = high_resolution_clock::now();
-    bool foundDFS = dfsSearch(root, searchValue);
+    Node* foundNodeDFS = dfsSearch(root, searchValue);
     auto stopDFS = high_resolution_clock::now();
     auto durationDFS = duration_cast<microseconds>(stopDFS - startDFS);
 
-    cout << "BFS Search: " << (foundBFS ? "Found" : "Not Found") << " in " << durationBFS.count() << " microseconds." << endl;
-    cout << "DFS Search: " << (foundDFS ? "Found" : "Not Found") << " in " << durationDFS.count() << " microseconds." << endl;
+    cout << "BFS Search: " << (foundNodeBFS != nullptr ? "Found" : "Not Found") << " in " << durationBFS.count() << " microseconds." << endl;
+    cout << "DFS Search: " << (foundNodeDFS != nullptr ? "Found" : "Not Found") << " in " << durationDFS.count() << " microseconds." << endl;
 
     return 0;
 }

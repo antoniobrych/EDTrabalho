@@ -179,3 +179,18 @@ Node* bfsSearch(Node* startingNode, int target)
 
     return nullptr;
 }
+
+/*
+ *  Dfs Search
+ */
+
+Node* dfsSearch(Node* startingNode, int target)
+{
+    if (startingNode == nullptr) return nullptr;
+    if (startingNode->iPayload == target) return startingNode;
+
+    Node* leftResult = dfsSearch(startingNode->ptrLeft, target);
+    if (leftResult != nullptr) return leftResult;
+
+    return dfsSearch(startingNode->ptrRight, target);
+}
