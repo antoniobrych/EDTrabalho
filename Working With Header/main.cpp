@@ -1,5 +1,6 @@
 #include "tree.h"
 #include <chrono>
+#include "tree.cpp"
 #include <iostream>
 using namespace std;
 using namespace std::chrono;
