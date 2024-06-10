@@ -4,9 +4,9 @@
 
 Na pasta 'structs.cpp' estão todas as funções de lista duplamente encadeada.
 
-Nossa main foi constantemente adaptada para chamar os algoritmos, na versão atual, está contida o código para árvores.
+Nossa main foi constantemente adaptada para chamar os algoritmos, na versão atual, está contida o código para árvores (Tarefa do dia 09/06)
 
-Da última tarefa para o dia 09/06. O código de árvores está em 'Working With Header/trees.cpp'.
+O código que implementa árvores está em 'Working With Header/trees.cpp'.
 
 # Trabalho de Estrutura de Dados para A2
 
