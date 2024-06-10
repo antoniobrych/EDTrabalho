@@ -6,7 +6,7 @@ Este repositório contém implementações de algoritmos de ordenação em C++, 
 
 Para executar, basta baixar a pasta 'Working with Header' e executar o arquivo main.cpp.
 
-### Explicação/IMPORTANTE!:
+# Explicação/IMPORTANTE!:
 
 todos os algoritmos pedidos ao longo do curso para serem implementados estão em 'Working With Header/includes.cpp'.
 
