@@ -3,16 +3,16 @@
 //
 
 #include "tree.h"
-#include <cstdlib>
+#include <iostream>
 using namespace std;
 
-Node* createNode(int iValue)
+Node* createNodeT(int iValue)
 {
     Node* tmp = (Node*) malloc(sizeof(Node));
 
     if (tmp == nullptr)
     {
-        cerr << "Erro em createNode: malloc" << endl;
+        cout << "Erro em createNodeT: malloc" << endl;
         exit(1);
     }
 
@@ -27,7 +27,7 @@ Node* insertNode(Node* startingNode, int iData)
 {
     if(startingNode == nullptr)
     {
-        return createNode(iData);
+        return createNodeT(iData);
     }
 
     if(iData < startingNode->iPayload)

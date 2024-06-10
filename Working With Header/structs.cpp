@@ -3,9 +3,9 @@
 #include "main.h"
 // file of structs
 
-Node* createNode(int iPayload){
+NodeL* createNode(int iPayload){
     //função que cria um nó
-    Node* temp = (Node*)malloc(sizeof(Node));
+    NodeL* temp = (NodeL*)malloc(sizeof(NodeL));
     temp->iPayload = iPayload;
     temp->ptrNext = nullptr;
     temp->ptrPrev = nullptr;
@@ -13,7 +13,7 @@ Node* createNode(int iPayload){
     return  temp;
 }
 
-void displayList(Node* node){
+void displayList(NodeL* node){
     //função que exibe lista
     if(node == nullptr){
         cout << "Lista Vazia: Nao e possivel realizar displayList" << endl;
@@ -23,7 +23,7 @@ void displayList(Node* node){
         cout << "Meio ou fim da Lista: Não é possível realizar displayList" << endl;
         return;
     }
-    Node* temp = node;
+    NodeL* temp = node;
     cout << "Payload: ";
     while (temp != nullptr){
         cout << temp->iPayload << " ";
